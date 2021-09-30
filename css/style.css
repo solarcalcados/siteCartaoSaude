@@ -1,0 +1,50 @@
+@font-face {
+    font-family: museo-light;
+    src: url("../font/Museo300-Regular.otf");
+  }
+@font-face {
+    font-family: museo-regular;
+    src: url("../font/Museo700-Regular.otf");
+  }
+@font-face {
+    font-family: museo-bold;
+    src: url("../font/MUSEO900-REGULAR.OTF");
+  }
+body{
+    background-color: #eeeeee;
+}
+
+.top_header{
+    font-size: 0.7rem;
+    font-family: museo-regular;
+    color: #585858;
+}
+.main_header{
+    background-color: #fff;
+    border-radius: 100px 100px 0 0;
+}
+.leading{
+  background-color: #0076ce;
+  color: #fff;
+  border-radius: 30px;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+.leading h1{
+  font-family: museo-light;
+  font-size: 2rem;
+}
+
+.leading h2{
+  font-family: museo-light;
+  font-size: 0.7rem;
+}
+
+.leading button{
+  background-color: #fff;
+  color: #00c063;
+  border-radius: 15px;
+  padding: 15px 20px;
+  border: 0;
+  font-family: museo-bold;
+}
