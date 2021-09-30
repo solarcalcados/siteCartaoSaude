@@ -23,6 +23,16 @@ body{
     background-color: #fff;
     border-radius: 100px 100px 0 0;
 }
+.logo{
+    width: 135px;
+}
+.list{
+  width: 40px;
+}
+.user{
+  width: 40px;
+}
+
 .leading{
   background-color: #0076ce;
   color: #fff;
