@@ -19,43 +19,12 @@ body{
     font-family: museo-regular;
     color: #585858;
 }
-.main_header{
-    background-color: #fff;
-    border-radius: 100px 100px 0 0;
-}
 .logo{
     width: 135px;
 }
-.list{
-  width: 40px;
-}
-.user{
-  width: 40px;
-}
-
-.leading{
-  background-color: #0076ce;
-  color: #fff;
-  border-radius: 30px;
-  text-align: center;
-  padding: 2rem 2rem;
-}
-.leading h1{
-  font-family: museo-light;
-  font-size: 2rem;
-}
-
-.leading h2{
-  margin: 1.5rem 0;
-  font-family: museo-light;
-  font-size: 1rem;
-}
-
-.leading button{
-  background-color: #fff;
-  color: #00c063;
-  border-radius: 15px;
-  padding: 15px 20px;
-  border: 0;
-  font-family: museo-bold;
+.card-button{
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  border-radius: 50px;
+  max-width: 450px;
+  min-width: 250px;
 }
