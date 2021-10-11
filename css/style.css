@@ -25,6 +25,57 @@ body{
 .card-button{
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   border-radius: 50px;
-  max-width: 450px;
-  min-width: 250px;
+}
+.title-card-p{
+  font-family: museo-bold;
+  color: #505050;
+  font-size: 0.9rem;
+}
+.title-card-p span{
+  color: #00bf62;
+  font-size: 1.2rem;
+}
+.presente{
+  width: 120px;
+}
+.btn-mesmo-p{
+  border: 0;
+  color: #fff;
+  font-family: museo-regular;
+  background-color: #00bf62;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.title-card-f{
+  font-family: museo-bold;
+  color: #505050;
+  font-size: 0.9rem;
+  text-align: left;
+}
+.title-card-f span{
+  color: #0076ce;
+  font-size: 1.2rem;
+}
+.subtitle-card-f{
+  font-family: museo-bold;
+  color: #505050;
+  font-size: 0.7rem;
+  text-align: left;
+}
+.btn-mesmo-f{
+  border: 0;
+  color: #fff;
+  font-family: museo-regular;
+  background-color: #0076ce;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.friends{
+  width: 120px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); 
 }
