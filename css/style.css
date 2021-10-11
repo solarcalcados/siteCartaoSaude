@@ -22,9 +22,19 @@ body{
 .logo{
     width: 135px;
 }
+.counter ul{
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #f0f0f0;
+  border-radius: 0 0 10px 10px;
+  font-family: museo-regular;
+}
+.counter li{
+  display: inline;
+}
 .card-button{
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-  border-radius: 50px;
+  border-radius: 30px;
 }
 .title-card-p{
   font-family: museo-bold;
@@ -74,7 +84,7 @@ body{
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 .friends{
-  width: 120px;
+  width: 160px;
   position: relative;
   top: 50%;
   transform: translateY(-50%); 
