@@ -1,0 +1,57 @@
+@font-face {
+    font-family: museo-light;
+    src: url("../font/Museo300-Regular.otf");
+  }
+@font-face {
+    font-family: museo-regular;
+    src: url("../font/Museo700-Regular.otf");
+  }
+@font-face {
+    font-family: museo-bold;
+    src: url("../font/MUSEO900-REGULAR.OTF");
+  }
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: red;
+    text-decoration:none;
+}
+.links{
+    background-image: url(links-bg.jpg);
+  }
+  
+  .painel{
+   text-align: center;
+   
+  }
+  .v{
+      background-color: rgb(255, 255, 255, 0.75);
+      position: relative;
+      top: 80px;
+      margin: auto;
+      max-width: 400px;
+      border-radius: 2rem;
+      padding-bottom: 15px;
+      box-shadow: rgba(0, 0, 0, 0.7) 0px 19px 40px;
+  }
+  .link-item{
+    background: rgb(247,247,247);
+    background: linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 100%);
+    margin: 30px 30px;
+    font-family: museo-regular;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    padding: 8px 0px;
+  }
+  .link-item:hover{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 25px;
+    transition: all 0.8s;
+  }
+
+  .azul{
+    color:#0076ce;
+  }
+  .verde{
+      color: #00c063;
+  }
