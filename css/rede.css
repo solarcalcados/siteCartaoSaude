@@ -1,11 +1,26 @@
+@font-face {
+    font-family: museo-light;
+    src: url("../font/Museo300-Regular.otf");
+  }
+@font-face {
+    font-family: museo-regular;
+    src: url("../font/Museo700-Regular.otf");
+  }
+@font-face {
+    font-family: museo-bold;
+    src: url("../font/MUSEO900-REGULAR.OTF");
+  }
+
 body{
     background-color: #ddd;
     
 }
 h1{
     font-size: 1.5rem;
+    font-family: museo-regular;
 }
 h2{
+    font-family: museo-regular;
     font-size: .91rem;
     text-transform: uppercase;
 }
