@@ -1,10 +1,14 @@
 @font-face {
-    font-family: museo-light;
-    src: url("../font/Museo300-Regular.otf");
+    font-family: museo-sans-light;
+    src: url("../font/MuseoSansCyrl.otf");
   }
 @font-face {
-    font-family: museo-regular;
-    src: url("../font/Museo700-Regular.otf");
+    font-family: museo-sans-regular;
+    src: url("../font/MuseoSansCyrl.otf");
+  }
+  @font-face {
+    font-family: museo-sans-bold;
+    src: url("../font/MuseoSansCyrl_1.otf");
   }
 @font-face {
     font-family: museo-bold;
@@ -20,17 +24,53 @@ h1{
     font-family: museo-regular;
 }
 h2{
-    font-family: museo-regular;
-    font-size: .91rem;
+    font-family: museo-bold;
+    font-size: 2.rem;
     text-transform: uppercase;
+    color: #0076ce;
 }
 h3{
-    font-size: 0.5rem;
+    font-family: museo-sans-bold;
+    font-size: 1.5rem;
     margin: 0;
+    margin-top: 0.5rem;
+    text-transform: capitalize;
 }
-.branco{
+h4{
+    font-family: museo-sans-regular;
+    font-size: 0.7rem;
+    color: #4c4c4c;
+    display: inline;
+}
+button{
+    background-color: #0076ce;
+    font-family: museo-sans-bold;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 1rem 1rem  0 0;
+}
+
+.cred{
     background-color: #fff;
 }
-.rede{
-    width: 90%;
+.cred-item-logo{
+    line-height:150px;
+}
+.cred-item-logo img{
+    width: 80px;
+    display: block;
+    margin: 0 auto;
+    line-height:150px;
+}
+.cred-item-data{
+    margin-bottom: 0.5rem;
+}
+.cred-data-icon img{
+    width: 13px;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); /* Adicionar os prefixos dos navegadores */
 }
