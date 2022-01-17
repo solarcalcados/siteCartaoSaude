@@ -36,8 +36,8 @@ const firebaseConfig = {
             var test = document.getElementById("partners");
             var htmltext="";
 
-            htmltext += '<div class="cred-item container">'
-            htmltextL += '<div class="row">'
+            htmltext = '<div class="cred-item container">'
+            htmltext += '<div class="row">'
             htmltext += '<div class="col-4">'
             htmltext += '<figure class="cred-item-logo vertical-align">'
             htmltext += '<img src="img/logo.png" alt="Logo">'
@@ -45,21 +45,29 @@ const firebaseConfig = {
             htmltext += '</div>'
             htmltext += '<div class="col-8 p-0">'
             htmltext += '<div class="cred-item-name">'
-            htmltext += '<h3>Clínica imma</h3>'
+            htmltext += '<h3>'+doc.data().name+'</h3>'
             htmltext += '</div>'
             htmltext += '<div class="cred-item-data">'
             htmltext += '<h4>'
             htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
             htmltext += '<img class="" src="img/gps.png" alt="">'
             htmltext += '</figure>'
-            htmltext += 'Monte Castelo, Cohatrac II'
+            for(let x  = 0; x < Object.keys(doc.data().endereco).length; x++){
+                let num = "unidade" + (x+1);
+                
+                console.log(doc.data().endereco[num].bairro)
+                htmltext +=     doc.data().endereco[num].bairro;
+                if(!(x+1 == Object.keys(doc.data().endereco).length)){
+                    htmltext += ', ';
+                }
+            }
             htmltext += '</h4>'
             htmltext += '<br>'
             htmltext += '<h4 class="text-uppercase">'
             htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
             htmltext += '<img src="img/desconto.png" alt="">'
             htmltext += '</figure>'
-            htmltext += 'Desconto de até 70%'
+            htmltext += doc.data().desconto;
             htmltext += '</h4>'
             htmltext += '</div>'
             htmltext += '</div>'
