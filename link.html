@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    
+
         <!-- Global site tag (gtag.js) - Google Ads: 469497916 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-469497916"></script>
 <script>
@@ -11,6 +11,21 @@
 
   gtag('config', 'AW-469497916');
 </script>
+
+<script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-469497916/KeyLCIy_s5EDELzw798B',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
 
 
         <!-- Meta tags Obrigatórias -->
@@ -40,7 +55,7 @@
         </div>
 
         <!-- botão flutuante whatsapp -->
-<a href="https://api.whatsapp.com/send?phone=5598983375979&text=olá" class="whatsapp-button" target="_blank" style="position: fixed;  right: 15px; bottom: 15px; width: 80px;">
+<a onclick="return gtag_report_conversion('https://api.whatsapp.com/send?phone=5598983375979&text=olá');" href="https://api.whatsapp.com/send?phone=5598983375979&text=olá" class="whatsapp-button" target="_blank" style="position: fixed;  right: 15px; bottom: 15px; width: 80px;">
     <img src="img/wpp.svg" alt="botão whatsapp">
   </a>
 
