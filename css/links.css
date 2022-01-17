@@ -53,7 +53,7 @@ a:hover{
     transition: all 0.6s;
   }
   .gradient {
-    background-image: linear-gradient(to right, #001011, #001011);
+    background-image: linear-gradient(to right, #0076ce, #0076ce);
     color: black;
     background-clip: text;
     -webkit-background-clip: text;
