@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        
+
+        <link rel="shortcut icon" href="img/favicon.png" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="css/rede.css"/>
+
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    </head>
+    <body class="container">
+
+        <section>
+            <header>
+              <h1>cadastro</h1>
+            </header>
+        </section>
+
+        <section class="cred">
+            <form>
+                <div>
+                    <label for="GET-nome">Nome: </label>
+                    <input type="text" id="GET-nome" name="nome">
+                </div>
+
+                <div>
+                    <label for="GET-area">Area: </label>
+                    <SELECT NAME = "ares" id="GET-area">
+                    <OPTION>Clínica médica
+                    <OPTION>Obstetria e Ginecologia
+                    <OPTION>Laboratório
+                    <OPTION>Clínica de Diagnostico
+                    <OPTION>Farmácia
+                    <OPTION>Farmácia de Manipulação
+                    <OPTION>Odontologia
+                    <OPTION>Oftalmologia
+                    <OPTION>Psicologia, Psiquiatria, Fonoaudiologia ou Nutrição
+                    <OPTION>Fisioterapia
+                    <OPTION>Diversas
+                    </SELECT>
+                </div>
+            
+                <div>
+                    <label for="GET-desconto">Desconto: </label>
+                    <input type="text" id="GET-desconto" name="desconto">
+                </div>
+
+                <div>
+                    <label for="GET-contato1">Contato 1: </label>
+                    <input type="text" id="GET-contato1" name="contato1">
+                    <label for="GET-contato2">Contato 2: </label>
+                    <input type="text" id="GET-contato2" name="contato2">
+                </div>
+
+                <div>
+                    Unidade 1:<br>
+                    <label for="GET-bairro1">Bairro </label>
+                    <input type="text" id="GET-bairro1" name="bairro1">
+                    <label for="GET-complemento1">complemento: </label>
+                    <input type="text" id="GET-complemento1" name="complemento1">
+                    <label for="GET-numero1">Número: </label>
+                    <input type="text" id="GET-numero1" name="numero1">
+                </div>
+
+                <div>
+                    Unidade 2:<br>
+                    <label for="GET-bairro2">Bairro </label>
+                    <input type="text" id="GET-bairro2" name="bairro2">
+                    <label for="GET-complemento2">complemento: </label>
+                    <input type="text" id="GET-complemento2" name="complemento2">
+                    <label for="GET-numero2">Número: </label>
+                    <input type="text" id="GET-numero2" name="numero2">
+                </div>
+                <button type='button' onclick="cadastrarParceiro()">Cadastrar Parceiro</button>
+            </form>
+        </section>
+
+
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+      <script src="js/cadrede.js"></script>
+    </body>
+</html>

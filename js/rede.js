@@ -11,16 +11,25 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
-  var db = firebase.firestore();
+  let storage = firebase.storage();
+
+  let db = firebase.firestore();
+
+  let docs = 0;
 
   db.collection("credenciados").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
+
+            docs ++;
+            
+
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
             console.log(doc.data().name);
             console.log(doc.data().area);
             console.log(doc.data().contat.length, "contatos:" );
+            console.log(typeof(doc.data().endereco))
             for(let x = 0; x < doc.data().contat.length; x++){
                 console.log(doc.data().contat[x]);
             }
@@ -74,14 +83,21 @@ const firebaseConfig = {
             htmltext += '</div>'
             htmltext += '<div class="row">'
             htmltext += '<div class="col-12 p-0">'
-            htmltext += '<button class="w-100 border-0 p-1">mais informações</button>'
+            htmltext += '<button onclick="changeDisplay('+docs+')" class="w-100 border-0 p-1">mais informações</button>'
             htmltext += '<hr style="background-color: #9d9d9d;" class="m-0">'
             htmltext += '</div>'
             htmltext += '</div>'
             htmltext += '</div>'
+            htmltext += '<h6 id="teste'+docs+'" class="d-none" >teste</teste>'
             document.getElementById("partners").innerHTML+=htmltext;
         });
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
+function changeDisplay(documents){
+    let id = "teste" + documents;
+    console.log(id);
+    document.getElementById(id).classList.remove("d-none");
+    document.getElementById(id).classList.add("d-block");
+}
