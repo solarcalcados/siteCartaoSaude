@@ -88,7 +88,7 @@ const firebaseConfig = {
             htmltext += '</div>'
             htmltext += '</div>'
             htmltext += '</div>'
-            htmltext += '<h6 id="teste'+docs+'" class="d-none" >teste</teste>'
+            htmltext += '<h6 id="teste'+docs+'" class="d-none" ></teste>'
             document.getElementById("partners").innerHTML+=htmltext;
         });
     })
