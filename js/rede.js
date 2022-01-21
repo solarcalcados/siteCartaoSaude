@@ -28,6 +28,8 @@ const firebaseConfig = {
   let itemAdress;
   let itemSubAreas;
 
+  console.log("V 1.0")
+
 
   db.collection("credenciados").get()
     .then((querySnapshot) => {
@@ -88,7 +90,7 @@ const firebaseConfig = {
 
             }
 
-            console.log(completeItemAdressText1);
+ 
 
             loadItem(itemName, itemArea, itemNumberOfAdress, itemAdressText, completeItemAdressText1, completeItemAdressText2, itemDescontoText, itemcontactText, itemId);
 
@@ -103,9 +105,6 @@ const firebaseConfig = {
 function changeDisplayOfItem(_itemId, _itemName,_itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText){
 
     let statusOfDisplay = document.getElementById("item"+_itemId).classList;
-    console.log(_itemName);
-    console.log(_itemArea);
-
     
     if(statusOfDisplay[2] == "reduced" || statusOfDisplay[1] == "reduced"){
         document.getElementById("item"+_itemId).classList.remove("reduced");
@@ -185,7 +184,6 @@ function loadItem(_itemName, _itemArea, _itemNumberOfAdress, _itemAdressText, _c
 function enlargedDisplayOfItem(_item, _name, _area, _numberOfAdress, _adress1, _adress2, _desconto, _contact){
 
     document.getElementById("item" + _item).classList.remove("cred-item");
-    console.log(_name)
 
     incresedHtml = '<div class="row data">'
         incresedHtml += '<div class="col-12">'
