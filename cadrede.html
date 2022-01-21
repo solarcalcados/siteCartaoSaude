@@ -40,23 +40,26 @@
                 <div>
                     <label for="GET-area">Area: </label>
                     <SELECT NAME = "ares" id="GET-area">
-                    <OPTION>Clínica médica
-                    <OPTION>Obstetria e Ginecologia
-                    <OPTION>Laboratório
-                    <OPTION>Clínica de Diagnostico
-                    <OPTION>Farmácia
-                    <OPTION>Farmácia de Manipulação
-                    <OPTION>Odontologia
-                    <OPTION>Oftalmologia
-                    <OPTION>Psicologia, Psiquiatria, Fonoaudiologia ou Nutrição
-                    <OPTION>Fisioterapia
-                    <OPTION>Diversas
+                    <OPTION value="medica">Clínica médica
+                    <OPTION value="obstetria">Obstetria e Ginecologia
+                    <OPTION value="laboratorio">Laboratório
+                    <OPTION value="diagnostico">Clínica de Diagnostico
+                    <OPTION value="farmacia">Farmácia
+                    <OPTION value="manipulacao">Farmácia de Manipulação
+                    <OPTION value="odontologia">Odontologia
+                    <OPTION value="oftalmologia">Oftalmologia
+                    <OPTION value="psico">Psicologia, Psiquiatria, Fonoaudiologia ou Nutrição
+                    <OPTION value="fisioterapia">Fisioterapia
+                    <OPTION value="diversas">Diversas
                     </SELECT>
                 </div>
             
                 <div>
                     <label for="GET-desconto">Desconto: </label>
-                    <input type="text" id="GET-desconto" name="desconto">
+                    <input list="browsers" />
+                    <datalist id="browsers">
+                        <option value="Variados">
+                    </datalist>
                 </div>
 
                 <div>

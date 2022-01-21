@@ -42,12 +42,28 @@ h4{
     color: #4c4c4c;
     display: inline;
 }
-button{
+.more-information{
     background-color: #0076ce;
     font-family: museo-sans-bold;
     color: #fff;
     font-size: 1.2rem;
     border-radius: 1rem 1rem  0 0;
+}
+.green-btn{
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: #00c063;
+    font-size: 1rem;
+    color: white;
+    font-family: museo-sans-regular;
+}
+.blue-btn{
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: #0076ce;
+    font-size: 1rem;
+    color: white;
+    font-family: museo-sans-regular;
 }
 
 .cred{
@@ -73,4 +89,12 @@ button{
     position: relative;
     top: 50%;
     transform: translateY(-50%); /* Adicionar os prefixos dos navegadores */
+}
+
+.data~div{
+    font-size: 0.8rem;
+    font-family: museo-sans-bold;
+}
+.museu{
+    font-family: museo-sans-bold;
 }

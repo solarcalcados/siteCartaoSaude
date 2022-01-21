@@ -15,37 +15,134 @@ const firebaseConfig = {
 
   let db = firebase.firestore();
 
-  let docs = 0;
+  let itemId = 0;
+  let lastEnlargedItem = 0;
+
+  let itemName;
+  let itemArea;
+  let itemNumberOfNumbers;
+  let itemContacts;
+  let itemcontactText = "";
+  let itemDesconto;
+  let itemNumberOfAdress;
+  let itemAdress;
+  let itemSubAreas;
+
 
   db.collection("credenciados").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
-            docs ++;
+            itemId ++;
+
+            itemcontactText = "";
+            itemDescontoText = "";
+            itemAdressText= "";
+            completeItemAdressText1 = "";
+            completeItemAdressText2 = "";
+        
+            itemName = doc.data().name;
+
+            itemArea = doc.data().area;
+
+            itemNumberOfNumbers = doc.data().contat.length;
+            itemContacts = doc.data().contat;
+
+            for(var x = 0; x < itemNumberOfNumbers ; x++){
+                itemcontactText += doc.data().contat[x]
+                if(!(x+1 == itemNumberOfNumbers)){
+                    itemcontactText += ", "
+                }
+            }
+
+
+            itemDesconto =  doc.data().desconto;
+            
+            console.log(itemDesconto);
+
+            if(itemDesconto != "Variados"){
+                if(!(isNaN(parseInt(itemDesconto, 10)))){
+                    itemDescontoText = "Descontos de até "+ itemDesconto+"%"
+                } else{
+                    itemDescontoText = itemDesconto;
+                }
+            } else{
+                itemDescontoText = "Descontos variados"
+            }
+
             
 
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            console.log(doc.data().name);
-            console.log(doc.data().area);
-            console.log(doc.data().contat.length, "contatos:" );
-            console.log(typeof(doc.data().endereco))
-            for(let x = 0; x < doc.data().contat.length; x++){
-                console.log(doc.data().contat[x]);
-            }
-            console.log(doc.data().desconto);
-            console.log(Object.keys(doc.data().endereco).length, "Endereços: ");
-            for(let x  = 0; x < Object.keys(doc.data().endereco).length; x++){
-                let num = "unidade" + (x+1);
-                
-                console.log(doc.data().endereco[num].bairro)
-            }
-            console.log(doc.data().subareas);
+            itemNumberOfAdress = Object.keys(doc.data().endereco).length;
+            itemAdress = doc.data().endereco;
 
-            var test = document.getElementById("partners");
-            var htmltext="";
+            for(var x = 0; x < itemNumberOfAdress ; x++){
+                let unidade = "unidade"+(x+1);
 
-            htmltext = '<div class="cred-item container">'
+                itemAdressText += itemAdress[unidade].bairro
+                if(!(x+1 == itemNumberOfAdress)){
+                    itemAdressText += ", "
+                }
+
+                completeItemAdressText1 = "Unidade1" + "- "+itemAdress["unidade1"].complemento+", Nº"+itemAdress["unidade1"].numero+"/ "+itemAdress["unidade1"].bairro;
+                completeItemAdressText2 = "Unidade2" + "- "+itemAdress["unidade2"].complemento+", Nº"+itemAdress["unidade2"].numero+"/ "+itemAdress["unidade2"].bairro;
+
+            }
+
+
+            itemSubAreas = doc.data().subareas;
+            console.log(completeItemAdressText1);
+
+            loadItem(itemName, itemArea, itemNumberOfAdress, itemAdressText, completeItemAdressText1, completeItemAdressText2, itemDescontoText, itemcontactText, itemId);
+
+
+            
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+//, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText
+function changeDisplayOfItem(_itemId, _itemName,_itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText){
+
+    let statusOfDisplay = document.getElementById("item"+_itemId).classList;
+    console.log(_itemName);
+    console.log(_itemArea);
+
+    
+    if(statusOfDisplay[2] == "reduced" || statusOfDisplay[1] == "reduced"){
+        document.getElementById("item"+_itemId).classList.remove("reduced");
+        document.getElementById("item"+_itemId).classList.add("enlarged");
+
+        enlargedDisplayOfItem(_itemId, _itemName,_itemArea, _itemNumberOfAdress, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText);
+        admChangesToItemDisplay(_itemId);
+        lastEnlargedItem = _itemId;
+        
+    }
+    else{
+
+        document.getElementById("item"+_itemId).classList.remove("enlarged");
+        document.getElementById("item"+_itemId).classList.add("reduced");
+        reducedDisplay(_itemId, _itemName, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText);
+
+    };
+    
+}
+
+// função p/ administrar itens ampliados
+function admChangesToItemDisplay(__item){
+    if(lastEnlargedItem == 0){
+        return
+    }
+    if(!(__item == lastEnlargedItem)){
+        changeDisplayOfItem(lastEnlargedItem)
+    }
+}
+
+
+function loadItem(_itemName, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
+
+            htmltext = '<div id="item'+_itemId+'" class="cred-item container reduced">'
+
             htmltext += '<div class="row">'
             htmltext += '<div class="col-4">'
             htmltext += '<figure class="cred-item-logo vertical-align">'
@@ -54,50 +151,124 @@ const firebaseConfig = {
             htmltext += '</div>'
             htmltext += '<div class="col-8 p-0">'
             htmltext += '<div class="cred-item-name">'
-            htmltext += '<h3>'+doc.data().name+'</h3>'
+            htmltext += '<h3>'+_itemAdressText+'</h3>'
             htmltext += '</div>'
             htmltext += '<div class="cred-item-data">'
             htmltext += '<h4>'
             htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
             htmltext += '<img class="" src="img/gps.png" alt="">'
             htmltext += '</figure>'
-            for(let x  = 0; x < Object.keys(doc.data().endereco).length; x++){
-                let num = "unidade" + (x+1);
-                
-                console.log(doc.data().endereco[num].bairro)
-                htmltext +=     doc.data().endereco[num].bairro;
-                if(!(x+1 == Object.keys(doc.data().endereco).length)){
-                    htmltext += ', ';
-                }
-            }
+
+            htmltext += _itemcontactText;
+
             htmltext += '</h4>'
             htmltext += '<br>'
             htmltext += '<h4 class="text-uppercase">'
             htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
             htmltext += '<img src="img/desconto.png" alt="">'
             htmltext += '</figure>'
-            htmltext += doc.data().desconto;
+            htmltext += _itemDescontoText;
             htmltext += '</h4>'
             htmltext += '</div>'
             htmltext += '</div>'
             htmltext += '</div>'
             htmltext += '<div class="row">'
             htmltext += '<div class="col-12 p-0">'
-            htmltext += '<button onclick="changeDisplay('+docs+')" class="w-100 border-0 p-1">mais informações</button>'
+            //, \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemDescontoText+'\', \''+_itemcontactText+'\'
+            htmltext += '<button onclick="changeDisplayOfItem('+_itemId+', \''+_itemName+'\', \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemcontactText+'\', \''+_itemDescontoText+'\')" class="more-information w-100 border-0 p-1">mais informações</button>'
             htmltext += '<hr style="background-color: #9d9d9d;" class="m-0">'
             htmltext += '</div>'
             htmltext += '</div>'
             htmltext += '</div>'
-            htmltext += '<h6 id="teste'+docs+'" class="d-none" ></teste>'
-            document.getElementById("partners").innerHTML+=htmltext;
-        });
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-function changeDisplay(documents){
-    let id = "teste" + documents;
-    console.log(id);
-    document.getElementById(id).classList.remove("d-none");
-    document.getElementById(id).classList.add("d-block");
+            document.getElementById(_itemArea).innerHTML+=htmltext;
+}
+
+
+function enlargedDisplayOfItem(_item, _name, _area, _numberOfAdress, _adress1, _adress2, _desconto, _contact){
+
+    document.getElementById("item" + _item).classList.remove("cred-item");
+    console.log(_name)
+
+    incresedHtml = '<div class="row data">'
+        incresedHtml += '<div class="col-12">'
+            incresedHtml += '<h3 class="text-center m-2">'+_name+'</h3>'
+        incresedHtml += '</div>'
+        incresedHtml += '<div class="col-12">'
+            incresedHtml += '<h5 class="text-center m-2">'+_contact+'</h5>'
+        incresedHtml += '</div>'
+        incresedHtml += '<div class="col-12">'
+            incresedHtml += '<figure class="text-center">'
+                incresedHtml += '<img class="w-50 my-3" src="img/logo.png" alt="logo">'
+            incresedHtml += '</figure>'
+        incresedHtml += '</div>'
+        console.log(_numberOfAdress)
+        if(_numberOfAdress == 1){
+            incresedHtml += '<div class="col-12 text-center">'
+            incresedHtml += '<p class="text-center mb-2 museu">'+_adress1+'</p>'
+            incresedHtml += '<button class="green-btn py-1 px-3 mb-4">ver no mapa</button>'
+            incresedHtml += '</div>'
+        }else if(_numberOfAdress == 2){
+            incresedHtml += '<div class="col-12 text-center">'
+            incresedHtml += '<p class="text-center mb-2 museu">'+_adress1+'</p>'
+            incresedHtml += '<button class="green-btn py-1 px-3 mb-4">ver no mapa</button>'
+            incresedHtml += '</div>'
+            incresedHtml += '<div class="col-12 text-center">'
+            incresedHtml += '<p class="text-center mb-2 museu">'+_adress2+'</p>'
+            incresedHtml += '<button class="green-btn py-1 px-3 mb-4">ver no mapa</button>'
+            incresedHtml += '</div>'
+        }
+
+        incresedHtml += '<div class="col-12 text-center museu">'
+            incresedHtml += '<p style="text-align: center;">'+_desconto+'</p>'
+            incresedHtml += '<button class="blue-btn py-1 px-3 mb-4">entrar em contato</button>'
+    incresedHtml += '</div>'
+    incresedHtml += '<hr>'
+    incresedHtml += '</div>'
+
+    document.getElementById("item"+_item).innerHTML = incresedHtml;
+
+}
+
+function reducedDisplay(_item){
+
+        let id = "item" + _item;
+        document.getElementById(id).classList.remove("cred-item");
+        
+
+        htmltext = '<div class="row">'
+        htmltext += '<div class="col-4">'
+        htmltext += '<figure class="cred-item-logo vertical-align">'
+        htmltext += '<img src="img/logo.png" alt="Logo">'
+        htmltext += '</figure>'
+        htmltext += '</div>'
+        htmltext += '<div class="col-8 p-0">'
+        htmltext += '<div class="cred-item-name">'
+        htmltext += '<h3>nome parceiro</h3>'
+        htmltext += '</div>'
+        htmltext += '<div class="cred-item-data">'
+        htmltext += '<h4>'
+        htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
+        htmltext += '<img class="" src="img/gps.png" alt="">'
+        htmltext += '</figure>'
+        
+        
+        htmltext += '</h4>'
+        htmltext += '<br>'
+        htmltext += '<h4 class="text-uppercase">'
+        htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
+        htmltext += '<img src="img/desconto.png" alt="">'
+        htmltext += '</figure>'
+        htmltext += 'desconto'
+        htmltext += '</h4>'
+        htmltext += '</div>'
+        htmltext += '</div>'
+        htmltext += '</div>'
+        htmltext += '<div class="row">'
+        htmltext += '<div class="col-12 p-0">'
+        htmltext += '<button onclick="changeDisplayOfItem('+_item+')" class="more-information w-100 border-0 p-1">mais informações</button>'
+        htmltext += '<hr style="background-color: #9d9d9d;" class="m-0">'
+        htmltext += '</div>'
+        htmltext += '</div>'
+        document.getElementById("item"+_item).innerHTML = htmltext;
+
 }

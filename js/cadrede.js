@@ -17,15 +17,13 @@ const firebaseConfig = {
 
 
 function cadastrarParceiro() {
-    let input = document.querySelector("#GET-nome");
+    let input = document.querySelector("#GET-area");
+
     console.log("hm: ")
     console.log(input.value);
-    db.collection("credenciados").doc("LA").set({
+    db.collection("credenciados").doc(input.value).set({
         area: "Los Angeles",
-        contat: {
-            0 : "CA",
-            1 : "CE"
-        },
+        contat: ["num1","num2"],
         desconto: "USA",
         endereco: {
             unidade1: {
