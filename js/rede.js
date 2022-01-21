@@ -88,8 +88,6 @@ const firebaseConfig = {
 
             }
 
-
-            itemSubAreas = doc.data().subareas;
             console.log(completeItemAdressText1);
 
             loadItem(itemName, itemArea, itemNumberOfAdress, itemAdressText, completeItemAdressText1, completeItemAdressText2, itemDescontoText, itemcontactText, itemId);
