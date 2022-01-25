@@ -29,7 +29,7 @@ const firebaseConfig = {
   let itemSubAreas;
   let nomeLogo;
 
-  console.log("V 2.2")
+  console.log("V 2.3")
 
 
   db.collection("credenciados").get()
@@ -230,6 +230,7 @@ function enlargedDisplayOfItem(_item, _name, _area, _numberOfAdress, _adress1, _
     incresedHtml += '</div>'
     incresedHtml += '<hr>'
     incresedHtml += '</div>'
+    incresedHtml += '<hr>'
 
     document.getElementById("item"+_item).innerHTML = incresedHtml;
 
