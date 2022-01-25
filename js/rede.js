@@ -29,7 +29,7 @@ const firebaseConfig = {
   let itemSubAreas;
   let nomeLogo;
 
-  console.log("V 2.1")
+  console.log("V 2.2")
 
 
   db.collection("credenciados").get()
@@ -225,7 +225,8 @@ function enlargedDisplayOfItem(_item, _name, _area, _numberOfAdress, _adress1, _
 
         incresedHtml += '<div class="col-12 text-center museu">'
             incresedHtml += '<p style="text-align: center;">'+_desconto+'</p>'
-            incresedHtml += '<button class="blue-btn py-1 px-3 mb-4" onclick="location.href=\'tel:98 91448770\'">entrar em contato</button>'
+            _desconto = _desconto.slice(0, _desconto.indexOf("/")).replace(".","-")
+            incresedHtml += '<button class="blue-btn py-1 px-3 mb-4" onclick="location.href=\'tel:'+_desconto+'\'">entrar em contato</button>'
     incresedHtml += '</div>'
     incresedHtml += '<hr>'
     incresedHtml += '</div>'
