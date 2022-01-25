@@ -27,8 +27,9 @@ const firebaseConfig = {
   let itemNumberOfAdress;
   let itemAdress;
   let itemSubAreas;
+  let nomeLogo;
 
-  console.log("V 1.0")
+  console.log("V 2.0")
 
 
   db.collection("credenciados").get()
@@ -45,6 +46,10 @@ const firebaseConfig = {
         
             itemName = doc.data().name;
 
+            let noSignalName = itemName.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+            nomeLogo = noSignalName.replace(/\s/g, '').toLowerCase();
+            console.log(nomeLogo)
+
             itemArea = doc.data().area;
 
             itemNumberOfNumbers = doc.data().contat.length;
@@ -53,14 +58,14 @@ const firebaseConfig = {
             for(var x = 0; x < itemNumberOfNumbers ; x++){
                 itemcontactText += doc.data().contat[x]
                 if(!(x+1 == itemNumberOfNumbers)){
-                    itemcontactText += ", "
+                    itemcontactText += " / "
                 }
             }
 
 
             itemDesconto =  doc.data().desconto;
             
-            console.log(itemDesconto);
+
 
             if(itemDesconto != "Variados"){
                 if(!(isNaN(parseInt(itemDesconto, 10)))){
@@ -85,14 +90,14 @@ const firebaseConfig = {
                     itemAdressText += ", "
                 }
 
-                completeItemAdressText1 = "Unidade1" + "- "+itemAdress["unidade1"].complemento+", Nº"+itemAdress["unidade1"].numero+"/ "+itemAdress["unidade1"].bairro;
-                completeItemAdressText2 = "Unidade2" + "- "+itemAdress["unidade2"].complemento+", Nº"+itemAdress["unidade2"].numero+"/ "+itemAdress["unidade2"].bairro;
+                completeItemAdressText1 = itemAdress["unidade1"].complemento+", Nº"+itemAdress["unidade1"].numero+"/ "+itemAdress["unidade1"].bairro;
+                completeItemAdressText2 = itemAdress["unidade2"].complemento+", Nº"+itemAdress["unidade2"].numero+"/ "+itemAdress["unidade2"].bairro;
 
             }
 
  
 
-            loadItem(itemName, itemArea, itemNumberOfAdress, itemAdressText, completeItemAdressText1, completeItemAdressText2, itemDescontoText, itemcontactText, itemId);
+            loadItem(itemName, nomeLogo, itemArea, itemNumberOfAdress, itemAdressText, completeItemAdressText1, completeItemAdressText2, itemDescontoText, itemcontactText, itemId);
 
 
             
@@ -136,19 +141,23 @@ function admChangesToItemDisplay(__item){
 }
 
 
-function loadItem(_itemName, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
+function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
 
             htmltext = '<div id="item'+_itemId+'" class="cred-item container reduced">'
+
+
+
+            console.log();
 
             htmltext += '<div class="row">'
             htmltext += '<div class="col-4">'
             htmltext += '<figure class="cred-item-logo vertical-align">'
-            htmltext += '<img src="img/logo.png" alt="Logo">'
+            htmltext += '<img src="img/'+_nomeLogo+'.svg" alt="Logo">'
             htmltext += '</figure>'
             htmltext += '</div>'
             htmltext += '<div class="col-8 p-0">'
             htmltext += '<div class="cred-item-name">'
-            htmltext += '<h3>'+_itemAdressText+'</h3>'
+            htmltext += '<h3>'+_itemName+'</h3>'
             htmltext += '</div>'
             htmltext += '<div class="cred-item-data">'
             htmltext += '<h4>'
@@ -156,7 +165,7 @@ function loadItem(_itemName, _itemArea, _itemNumberOfAdress, _itemAdressText, _c
             htmltext += '<img class="" src="img/gps.png" alt="">'
             htmltext += '</figure>'
 
-            htmltext += _itemcontactText;
+            htmltext += _itemAdressText;
 
             htmltext += '</h4>'
             htmltext += '<br>'
@@ -200,23 +209,23 @@ function enlargedDisplayOfItem(_item, _name, _area, _numberOfAdress, _adress1, _
         console.log(_numberOfAdress)
         if(_numberOfAdress == 1){
             incresedHtml += '<div class="col-12 text-center">'
-            incresedHtml += '<p class="text-center mb-2 museu">'+_adress1+'</p>'
-            incresedHtml += '<button class="green-btn py-1 px-3 mb-4">ver no mapa</button>'
+            incresedHtml += '<p class="text-center mb-2 museu">Unidade1 - '+_adress1+'</p>'
+            incresedHtml += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_name+' '+_adress1+'\')">ver no mapa</button>'
             incresedHtml += '</div>'
         }else if(_numberOfAdress == 2){
             incresedHtml += '<div class="col-12 text-center">'
-            incresedHtml += '<p class="text-center mb-2 museu">'+_adress1+'</p>'
-            incresedHtml += '<button class="green-btn py-1 px-3 mb-4">ver no mapa</button>'
+            incresedHtml += '<p class="text-center mb-2 museu">Unidade1 - '+_adress1+'</p>'
+            incresedHtml += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_name+' '+_adress1+'\')">ver no mapa</button>'
             incresedHtml += '</div>'
             incresedHtml += '<div class="col-12 text-center">'
-            incresedHtml += '<p class="text-center mb-2 museu">'+_adress2+'</p>'
-            incresedHtml += '<button class="green-btn py-1 px-3 mb-4">ver no mapa</button>'
+            incresedHtml += '<p class="text-center mb-2 museu" >Unidade2 - '+_adress2+'</p>'
+            incresedHtml += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_name+' '+_adress2+'\')">ver no mapa</button>'
             incresedHtml += '</div>'
         }
 
         incresedHtml += '<div class="col-12 text-center museu">'
             incresedHtml += '<p style="text-align: center;">'+_desconto+'</p>'
-            incresedHtml += '<button class="blue-btn py-1 px-3 mb-4">entrar em contato</button>'
+            incresedHtml += '<button class="blue-btn py-1 px-3 mb-4" onclick="location.href=\'98 91448770\'">entrar em contato</button>'
     incresedHtml += '</div>'
     incresedHtml += '<hr>'
     incresedHtml += '</div>'
@@ -267,4 +276,8 @@ function reducedDisplay(_item){
         htmltext += '</div>'
         document.getElementById("item"+_item).innerHTML = htmltext;
 
+}
+
+function mapButton1(_adress2){
+    window.open("http://maps.google.com/?saddr=Current%20Location&daddr="+_adress2, "_blank")
 }

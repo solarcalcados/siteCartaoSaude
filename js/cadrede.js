@@ -17,29 +17,46 @@ const firebaseConfig = {
 
 
 function cadastrarParceiro() {
-    let input = document.querySelector("#GET-area");
+    let inputName = document.querySelector("#GET-name").value;
+
+    let inputArea = document.querySelector("#GET-area").value;
+
+    let inputDesconto = document.querySelector("#GET-desconto").value;
+
+    let inputNum1 = document.querySelector("#GET-contato1").value;
+    let inputNum2 = document.querySelector("#GET-contato2").value;
+
+    let inputBairro1 = document.querySelector("#GET-bairro1").value;
+    let inputComplemento1 = document.querySelector("#GET-complemento1").value;
+    let inputAdressNum1 = document.querySelector("#GET-numero1").value;
+
+    let inputBairro2 = document.querySelector("#GET-bairro2").value;
+    let inputComplemento2 = document.querySelector("#GET-complemento2").value;
+    let inputAdressNum2 = document.querySelector("#GET-numero2").value;
+
+    
 
     console.log("hm: ")
     console.log(input.value);
-    db.collection("credenciados").doc(input.value).set({
-        area: "Los Angeles",
-        contat: ["num1","num2"],
-        desconto: "USA",
+    db.collection("credenciados").doc(inputName).set({
+        area: inputArea,
+        contat: [inputNum1,inputNum2],
+        desconto: inputDesconto,
         endereco: {
             unidade1: {
-                bairro: "bairro1",
-                complemento: "complemento1",
-                numero: "2509"
+                bairro: inputBairro1,
+                complemento: inputComplemento1,
+                numero: inputAdressNum1
             },
             unidade2: {
-                bairro: "bairro2",
-                complemento: "complemento2",
-                numero: "2509"
+                bairro: inputBairro2,
+                complemento: inputComplemento2,
+                numero: inputAdressNum2
             }
         },
         
         logo: "logo",
-        name: "name"
+        name: inputName
     })
     .then(() => {
         console.log("Document successfully written!");
