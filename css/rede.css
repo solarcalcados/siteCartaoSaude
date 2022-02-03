@@ -15,8 +15,10 @@
     src: url("../font/MUSEO900-REGULAR.OTF");
   }
 
+
+
 body{
-    background-color: #ddd;
+    background-color: #f7f7f7;
     
 }
 h1{
@@ -25,7 +27,7 @@ h1{
 }
 h2{
     font-family: museo-bold;
-    font-size: 2.rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     color: #0076ce;
 }
@@ -51,11 +53,11 @@ h4{
 }
 
 .more-information{
-    background-color: #0076ce;
-    font-family: museo-sans-bold;
-    color: #fff;
+    background-color: #fff;
+    font-family: museo-sans-light;
+    color: #0076ce;
     font-size: 1.2rem;
-    border-radius: 1rem 1rem  0 0;
+    border-radius: 2rem;
 }
 .green-btn{
     border: 0;
@@ -76,6 +78,24 @@ h4{
 
 .cred{
     background-color: #fff;
+    transition: all 1s;
+}
+.cred-area{
+    background-color: #f7f7f7;
+    padding: 1rem;
+    
+    transition: all 1s;
+}
+.cred-area h2{
+    background-color: #f7f7f7;
+}
+.cred-item{
+    border: #cfcfcf solid 2px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    margin: 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .cred-item-logo{
     line-height:150px;
@@ -105,4 +125,35 @@ h4{
 }
 .museu{
     font-family: museo-sans-bold;
+}
+
+.tres {
+    background: rgb(255, 255, 255);
+    margin: 0;
+    padding: 5px 0;
+}
+.tra{
+    background-color: #fff;
+    transition: all 5s;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+@media screen and (min-width: 600px) {
+	h2 {
+		background: #9CF;
+	}
+
+    .cred-item-logo img{
+        width: 130px;
+        display: block;
+        margin: 0 auto;
+        padding: 10px auto;
+        line-height:150px;
+    }
+
+    img{
+        width: 10rem;
+    }
+	
 }

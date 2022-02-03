@@ -143,19 +143,17 @@ function admChangesToItemDisplay(__item){
 
 function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
 
-            htmltext = '<div id="item'+_itemId+'" class="cred-item container reduced">'
-
-
+            htmltext = '<div id="item'+_itemId+'" class="cred-item container reduced tra">'
 
             console.log();
 
             htmltext += '<div class="row">'
-            htmltext += '<div class="col-4">'
+            htmltext += '<div class="col-4 col-md-6">'
             htmltext += '<figure class="cred-item-logo vertical-align">'
             htmltext += '<img src="img/'+_nomeLogo+'.svg" alt="Logo">'
             htmltext += '</figure>'
             htmltext += '</div>'
-            htmltext += '<div class="col-8 p-0">'
+            htmltext += '<div class="col-8 col-md-6 p-0">'
             htmltext += '<div class="cred-item-name">'
             htmltext += '<h3>'+_itemName+'</h3>'
             htmltext += '</div>'
@@ -180,9 +178,9 @@ function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdr
             htmltext += '</div>'
             htmltext += '<div class="row">'
             htmltext += '<div class="col-12 p-0">'
+            htmltext += '<hr style="background-color: #9d9d9d;" class="mx-3 my-0">'
             //, \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemDescontoText+'\', \''+_itemcontactText+'\'
             htmltext += '<button onclick="changeDisplayOfItem('+_itemId+', \''+_itemName+'\', \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemcontactText+'\', \''+_itemDescontoText+'\')" class="more-information w-100 border-0 p-1">mais informações</button>'
-            htmltext += '<hr style="background-color: #9d9d9d;" class="m-0">'
             htmltext += '</div>'
             htmltext += '</div>'
             htmltext += '</div>'
@@ -203,7 +201,7 @@ function enlargedDisplayOfItem(_item, _name, _area, _numberOfAdress, _adress1, _
         incresedHtml += '</div>'
         incresedHtml += '<div class="col-12">'
             incresedHtml += '<figure class="text-center">'
-                incresedHtml += '<img class="w-50 my-3" src="img/logo.png" alt="logo">'
+                incresedHtml += '<img class="my-3" src="img/logo.png" alt="logo">'
             incresedHtml += '</figure>'
         incresedHtml += '</div>'
         console.log(_numberOfAdress)
