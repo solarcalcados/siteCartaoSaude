@@ -107,15 +107,15 @@ const firebaseConfig = {
         console.log("Error getting documents: ", error);
     });
 //, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText
-function changeDisplayOfItem(_itemId, _itemName,_itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _nomeLogo){
+function changeDisplayOfItem(_itemId){
 
     let statusOfDisplay = document.getElementById("item"+_itemId).classList;
     
-    if(statusOfDisplay[2] == "reduced" || statusOfDisplay[1] == "reduced"){
+    if(statusOfDisplay[2] == "reduced" || statusOfDisplay[3] == "reduced"){
         document.getElementById("item"+_itemId).classList.remove("reduced");
         document.getElementById("item"+_itemId).classList.add("enlarged");
 
-        enlargedDisplayOfItem(_itemId, _itemName,_itemArea, _itemNumberOfAdress, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _nomeLogo);
+        enlargedDisplayOfItem(_itemId);
         admChangesToItemDisplay(_itemId);
         lastEnlargedItem = _itemId;
         
@@ -124,8 +124,7 @@ function changeDisplayOfItem(_itemId, _itemName,_itemArea, _itemNumberOfAdress, 
 
         document.getElementById("item"+_itemId).classList.remove("enlarged");
         document.getElementById("item"+_itemId).classList.add("reduced");
-        console.log("reduzindo o outro lá: ")
-        console.log(_itemName)
+
         reducedDisplay(_itemId);
 
     };
@@ -147,13 +146,11 @@ function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdr
 
             htmltext = '<div id="item'+_itemId+'" class="cred-item container-fluid reduced tra">'
 
-            console.log();
-
             htmltext += '<div id="'+_itemId+'reduced" class="reduced enabled">'
             htmltext += '<div class="row">'
             htmltext += '<div class="col-4 col-md-6">'
             htmltext += '<figure class="cred-item-logo vertical-align">'
-            htmltext += '<img src="img/'+_nomeLogo+'.svg" alt="Logo">'
+            htmltext += '<img src="img/logos/'+_nomeLogo+'.svg" alt="Logo">'
             htmltext += '</figure>'
             htmltext += '</div>'
             htmltext += '<div class="col-8 col-md-6 p-0">'
@@ -194,11 +191,11 @@ function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdr
         htmltext += '<h3 class="text-center m-2">'+_itemName+'</h3>'
             htmltext += '</div>'
         htmltext += '<div class="col-12">'
-        htmltext += '<h5 class="text-center m-2">'+itemcontactText+'</h5>'
+        htmltext += '<h5 class="text-center m-2">'+_itemDescontoText+'</h5>'
             htmltext += '</div>'
         htmltext += '<div class="col-12">'
         htmltext += '<figure class="text-center">'
-            htmltext += '<img class="my-3" src="img/'+_nomeLogo+'.svg" alt="logo">'
+            htmltext += '<img class="my-3" src="img/logos/'+_nomeLogo+'.svg" alt="logo">'
                 htmltext += '</figure>'
             htmltext += '</div>'
         if(_itemNumberOfAdress == 1){
@@ -238,9 +235,6 @@ function enlargedDisplayOfItem(_item, _name, _area, _numberOfAdress, _adress1, _
 }
 
 function reducedDisplay(_item){
-
-        let id = "item" + _item;
-        
 
         document.getElementById(_item+"reduced").classList.remove("disabled");
         document.getElementById(_item+"reduced").classList.add("enabled");
