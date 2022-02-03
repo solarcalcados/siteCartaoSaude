@@ -34,10 +34,7 @@ function cadastrarParceiro() {
     let inputComplemento2 = document.querySelector("#GET-complemento2").value;
     let inputAdressNum2 = document.querySelector("#GET-numero2").value;
 
-    
 
-    console.log("hm: ")
-    console.log(input.value);
     db.collection("credenciados").doc(inputName).set({
         area: inputArea,
         contat: [inputNum1,inputNum2],

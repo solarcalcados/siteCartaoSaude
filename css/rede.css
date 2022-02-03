@@ -44,6 +44,19 @@ h4{
     color: #4c4c4c;
     display: inline;
 }
+.enabled{
+    display: block;
+    transition: all 1s;
+}
+.disabled{
+    display: none;
+    transition: all 1s;
+}
+
+.reduzed{
+    transition: all 1s;
+}
+
 .title{
     text-align: center;
     font-size: 2.5rem;
@@ -101,7 +114,7 @@ h4{
     line-height:150px;
 }
 .cred-item-logo img{
-    width: 80px;
+    max-width: 80px;
     display: block;
     margin: 0 auto;
     line-height:150px;
@@ -139,6 +152,11 @@ h4{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.enlarged img{
+    width: 10rem;
+}
+
+
 @media screen and (min-width: 600px) {
 	h2 {
 		background: #9CF;
@@ -152,8 +170,8 @@ h4{
         line-height:150px;
     }
 
-    img{
-        width: 10rem;
+    .cred-item-logo img{
+        max-width: 15rem;
     }
 	
 }
