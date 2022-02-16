@@ -10,6 +10,11 @@
     font-family: museo-bold;
     src: url("../font/MUSEO900-REGULAR.OTF");
   }
+
+body{
+  background-image: url("../img/background.png");
+}  
+
 a{
     text-decoration: none;
 }
@@ -27,16 +32,32 @@ a:hover{
    
   }
   .v{
-      background-color: rgba(255, 255, 255, 0.226);
-      position: relative;
-      top: 80px;
-      -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-      margin: auto;
-      max-width: 400px;
-      border-radius: 2rem;
-      padding-bottom: 15px;
-      box-shadow: rgba(0, 0, 0, 0.7) 0px 19px 40px;
+    background-color: rgba(255, 255, 255,1);
+    margin: auto;
+    max-width: 400px;
+    border-radius: 2rem;
+    padding-bottom: 15px;
+    box-shadow: rgb(0 0 0 / 50%) 3px 5px 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 470px
+  }
+  .c{
+    background-color: rgba(255, 255, 255,1);
+    margin: auto;
+    max-width: 400px;
+    border-radius: 2rem;
+    padding-bottom: 15px;
+    box-shadow: rgb(0 0 0 / 50%) 3px 5px 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 550px
   }
   .link-item{
     background: rgb(255, 255, 255);
