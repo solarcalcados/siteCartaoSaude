@@ -18,7 +18,7 @@
 
 
 body{
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     
 }
 h1{
@@ -26,14 +26,14 @@ h1{
     font-family: museo-regular;
 }
 h2{
-    font-family: museo-bold;
-    font-size: 1.4rem;
-    text-transform: uppercase;
+    font-family: museo-sans-bold;
+    font-size: 1.6rem;
+    text-transform: capitalize;
     color: #0076ce;
 }
 h3{
     font-family: museo-sans-bold;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 0;
     margin-top: 0.5rem;
     text-transform: capitalize;
@@ -43,6 +43,14 @@ h4{
     font-size: 0.7rem;
     color: #4c4c4c;
     display: inline;
+}
+.table{
+    display: table;
+    width: 100%;
+}
+.vertical-ali{
+    display: table-cell;
+    vertical-align: middle;
 }
 .enabled{
     display: block;
@@ -66,15 +74,15 @@ h4{
 }
 
 .more-information{
-    background-color: #fff;
-    font-family: museo-sans-light;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: museo-sans-regular;
     color: #0076ce;
     font-size: 1.2rem;
     border-radius: 2rem;
 }
 .green-btn{
     border: 0;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     background-color: #00c063;
     font-size: 1rem;
     color: white;
@@ -82,7 +90,7 @@ h4{
 }
 .blue-btn{
     border: 0;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     background-color: #0076ce;
     font-size: 1rem;
     color: white;
@@ -94,22 +102,27 @@ h4{
     transition: all 1s;
 }
 .cred-area{
-    background-color: #f7f7f7;
-    padding: 1rem;
-    
-    transition: all 1s;
-}
-.cred-area h2{
-    background-color: #f7f7f7;
-}
-.cred-item{
-    border: #cfcfcf solid 2px;
     background-color: #fff;
+    padding: 1rem;
     box-sizing: border-box;
     border-radius: 1rem;
     margin: 10px 0;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    transition: all 1s;
 }
+.cred-item{
+    border: rgb(245, 245, 245) solid 1px;
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+.cred-item:hover{
+    background-color: #f8f8f8;
+}
+.logo-alonged{
+    max-width: 90px;
+}
+
 .cred-item-logo{
     line-height:150px;
 }

@@ -78,9 +78,14 @@ const firebaseConfig = {
             }
 
             
-
-            itemNumberOfAdress = Object.keys(doc.data().endereco).length;
             itemAdress = doc.data().endereco;
+            itemNumberOfAdress = Object.keys(doc.data().endereco).length;
+            if(!itemAdress["unidade2"].bairro){
+                console.log("no 2")
+                itemNumberOfAdress = 1;
+            }
+
+            
 
             for(var x = 0; x < itemNumberOfAdress ; x++){
                 let unidade = "unidade"+(x+1);
@@ -144,82 +149,80 @@ function admChangesToItemDisplay(__item){
 
 function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
 
-            htmltext = '<div id="item'+_itemId+'" class="cred-item container-fluid reduced tra">'
+            htmltext = '<div id="item'+_itemId+'" class="cred-item container-fluid reduced ">'
 
-            htmltext += '<div id="'+_itemId+'reduced" class="reduced enabled">'
-            htmltext += '<div class="row">'
-            htmltext += '<div class="col-4 col-md-6">'
-            htmltext += '<figure class="cred-item-logo vertical-align">'
-            htmltext += '<img src="img/logos/'+_nomeLogo+'.svg" alt="Logo">'
-            htmltext += '</figure>'
-            htmltext += '</div>'
-            htmltext += '<div class="col-8 col-md-6 p-0">'
-            htmltext += '<div class="cred-item-name">'
-            htmltext += '<h3>'+_itemName+'</h3>'
-            htmltext += '</div>'
-            htmltext += '<div class="cred-item-data">'
-            htmltext += '<h4>'
-            htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
-            htmltext += '<img class="" src="img/gps.png" alt="">'
-            htmltext += '</figure>'
+                htmltext += '<div id="'+_itemId+'reduced" class="reduced enabled">'
+                    htmltext += '<div class="row">'
+                        htmltext += '<div class="col-4 col-md-6">'
+                            htmltext += '<figure class="cred-item-logo vertical-align">'
+                                htmltext += '<img src="img/logos/'+_nomeLogo+'.svg" alt="Logo">'
+                            htmltext += '</figure>'
+                        htmltext += '</div>'
+                        htmltext += '<div class="col-8 col-md-6 p-0">'
+                            htmltext += '<div class="cred-item-name">'
+                                htmltext += '<h3>'+_itemName+'</h3>'
+                            htmltext += '</div>'
+                            htmltext += '<div class="cred-item-data">'
+                                htmltext += '<h4>'
+                                    htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
+                                        htmltext += '<img class="" src="img/gps.png" alt="">'
+                                    htmltext += '</figure>'
 
-            htmltext += _itemAdressText;
+                                    htmltext += _itemAdressText;
 
-            htmltext += '</h4>'
-            htmltext += '<br>'
-            htmltext += '<h4 class="text-uppercase">'
-            htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
-            htmltext += '<img src="img/desconto.png" alt="">'
-            htmltext += '</figure>'
-            htmltext += _itemDescontoText;
-            htmltext += '</h4>'
-            htmltext += '</div>'
-            htmltext += '</div>'
-            htmltext += '</div>'
-            htmltext += '<div class="row">'
-            htmltext += '<div class="col-12 p-0">'
-            htmltext += '<hr style="background-color: #9d9d9d;" class="mx-3 my-0">'
-            //, \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemDescontoText+'\', \''+_itemcontactText+'\'
-            htmltext += '<button onclick="changeDisplayOfItem('+_itemId+', \''+_itemName+'\', \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemcontactText+'\', \''+_itemDescontoText+'\', \''+_nomeLogo+'\')" class="more-information w-100 border-0 p-1">mais informações</button>'
-            htmltext += '</div>'
-            htmltext += '</div>'
+                                htmltext += '</h4>'
+                                htmltext += '<br>'
+                                htmltext += '<h4 class="text-uppercase">'
+                                    htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
+                                        htmltext += '<img src="img/desconto.png" alt="">'
+                                    htmltext += '</figure>'
+                                    htmltext += _itemDescontoText;
+                                htmltext += '</h4>'
+                        htmltext += '</div>'
+                    htmltext += '</div>'
+                htmltext += '</div>'
+                htmltext += '<div class="row">'
+                    htmltext += '<div class="col-12 p-0">'
+                        //, \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemDescontoText+'\', \''+_itemcontactText+'\'
+                        htmltext += '<button onclick="changeDisplayOfItem('+_itemId+', \''+_itemName+'\', \''+_itemArea+'\', \''+_itemNumberOfAdress+'\', \''+_itemAdressText+'\', \''+_completeItemAdressText1+'\', \''+_completeItemAdressText2+'\', \''+_itemcontactText+'\', \''+_itemDescontoText+'\', \''+_nomeLogo+'\')" class="more-information w-100 border-0 p-1">Mais informações</button>'
+                    htmltext += '</div>'
+                htmltext += '</div>'
             htmltext += '</div>'
 
             htmltext += '<div id="'+_itemId+'enlarged" class="enlarged disabled">'
                 htmltext += '<div class="row data">'
-                htmltext += '<div class="col-12">'
-        htmltext += '<h3 class="text-center m-2">'+_itemName+'</h3>'
-            htmltext += '</div>'
-        htmltext += '<div class="col-12">'
-        htmltext += '<h5 class="text-center m-2">'+_itemDescontoText+'</h5>'
-            htmltext += '</div>'
-        htmltext += '<div class="col-12">'
-        htmltext += '<figure class="text-center">'
-            htmltext += '<img class="my-3" src="img/logos/'+_nomeLogo+'.svg" alt="logo">'
-                htmltext += '</figure>'
-            htmltext += '</div>'
-        if(_itemNumberOfAdress == 1){
-            htmltext += '<div class="col-12 text-center">'
-            htmltext += '<p class="text-center mb-2 museu">Unidade1 - '+_completeItemAdressText1+'</p>'
-            htmltext += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_itemName+' '+_completeItemAdressText1+'\')">ver no mapa</button>'
-            htmltext += '</div>'
-        }else if(_itemNumberOfAdress == 2){
-            htmltext += '<div class="col-12 text-center">'
-            htmltext += '<p class="text-center mb-2 museu">Unidade1 - '+_completeItemAdressText1+'</p>'
-            htmltext += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_itemName+' '+_completeItemAdressText1+'\')">ver no mapa</button>'
-            htmltext += '</div>'
-            htmltext += '<div class="col-12 text-center">'
-            htmltext += '<p class="text-center mb-2 museu" >Unidade2 - '+_completeItemAdressText2+'</p>'
-            htmltext += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_itemName+' '+_completeItemAdressText2+'\')">ver no mapa</button>'
-            htmltext += '</div>'
-        }
-
-        htmltext += '<div class="col-12 text-center museu">'
-        htmltext += '<p style="text-align: center;">'+_itemcontactText+'</p>'
-        _itemcontactText = _itemcontactText.slice(0, _itemcontactText.indexOf("/")).replace(".","-")
-            htmltext += '<button class="blue-btn py-1 px-3 mb-4" onclick="location.href=\'tel:'+_itemcontactText+'\'">entrar em contato</button>'
-    htmltext += '</div>'
-            document.getElementById(_itemArea).innerHTML+=htmltext;
+                    htmltext += '<div class="col-3">'
+                        htmltext += '<figure class="text-center">'
+                             htmltext += '<img class="my-3 logo-alonged" src="img/logos/'+_nomeLogo+'.svg" alt="logo">'
+                        htmltext += '</figure>'
+                    htmltext += '</div>'
+                    htmltext += '<div class="col-5 table">'
+                        htmltext += '<h3 class="text-left m-2 vertical-ali">'+_itemName+'</h3>'
+                    htmltext += '</div>'
+                    htmltext += '<div class="col-4 table">'
+                        htmltext += '<h5 class="text-center m-2 vertical-ali">'+_itemDescontoText+'</h5>'
+                    htmltext += '</div>'
+                if(_itemNumberOfAdress == 1){
+                    htmltext += '<div class="col-12 text-center">'
+                        htmltext += '<p class="text-center mb-2 museu">Unidade1 - '+_completeItemAdressText1+'</p>'
+                        htmltext += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_itemName+' '+_completeItemAdressText1+'\')">ver no mapa</button>'
+                    htmltext += '</div>'
+                }else if(_itemNumberOfAdress == 2){
+                    htmltext += '<div class="col-12 text-center">'
+                        htmltext += '<p class="text-center mb-2 museu">Unidade1 - '+_completeItemAdressText1+'</p>'
+                        htmltext += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_itemName+' '+_completeItemAdressText1+'\')">ver no mapa</button>'
+                    htmltext += '</div>'
+                    htmltext += '<div class="col-12 text-center">'
+                        htmltext += '<p class="text-center mb-2 museu" >Unidade2 - '+_completeItemAdressText2+'</p>'
+                        htmltext += '<button class="green-btn py-1 px-3 mb-4" onClick="mapButton1(\''+_itemName+' '+_completeItemAdressText2+'\')">ver no mapa</button>'
+                    htmltext += '</div>'
+                }
+                    htmltext += '<div class="col-12 text-center museu">'
+                        htmltext += '<p style="text-align: center;">'+_itemcontactText+'</p>'
+                            _itemcontactText = _itemcontactText.slice(0, _itemcontactText.indexOf("/")).replace(".","-")
+                        htmltext += '<button class="blue-btn py-1 px-3 mb-4" onclick="location.href=\'tel:'+_itemcontactText+'\'">entrar em contato</button>'
+                    htmltext += '</div>'
+        document.getElementById(_itemArea).innerHTML+=htmltext;
 }
 
 
