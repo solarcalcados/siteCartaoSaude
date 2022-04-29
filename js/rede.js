@@ -149,7 +149,7 @@ function admChangesToItemDisplay(__item){
 
 function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
 
-            htmltext = '<div id="item'+_itemId+'" class="cred-item container-fluid reduced ">'
+            htmltext = '<div id="item'+_itemId+'" class="cred-item container-fluid reduced">'
 
                 htmltext += '<div id="'+_itemId+'reduced" class="reduced enabled">'
                     htmltext += '<div class="row">'
@@ -189,19 +189,29 @@ function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdr
                 htmltext += '</div>'
             htmltext += '</div>'
 
+
             htmltext += '<div id="'+_itemId+'enlarged" class="enlarged disabled">'
                 htmltext += '<div class="row data">'
-                    htmltext += '<div class="col-3">'
+                    htmltext += '<div class="col-4">'
                         htmltext += '<figure class="text-center">'
                              htmltext += '<img class="my-3 logo-alonged" src="img/logos/'+_nomeLogo+'.svg" alt="logo">'
                         htmltext += '</figure>'
                     htmltext += '</div>'
-                    htmltext += '<div class="col-5 table">'
-                        htmltext += '<h3 class="text-left m-2 vertical-ali">'+_itemName+'</h3>'
+                    htmltext += '<div class="col-8 table">'
+                        htmltext += '<div class="vertical-ali">'
+                            htmltext += '<div>'
+                                htmltext += '<h3 class="text-left">'+_itemName+'</h3>'
+                            htmltext += '</div>'
+                            htmltext += '<div>'
+                                htmltext += '<h5 class="text-center vertical-ali">'
+                                    htmltext += '<figure class="d-inline-block cred-data-icon m-1">'
+                                        htmltext += '<img src="img/desconto.png" alt="">'
+                                    htmltext += '</figure>'
+                                htmltext+= _itemDescontoText+'</h5>'
+                            htmltext += '</div>'
+                        htmltext += '</div>'
                     htmltext += '</div>'
-                    htmltext += '<div class="col-4 table">'
-                        htmltext += '<h5 class="text-center m-2 vertical-ali">'+_itemDescontoText+'</h5>'
-                    htmltext += '</div>'
+                htmltext += '</div>'
                 if(_itemNumberOfAdress == 1){
                     htmltext += '<div class="col-12 text-center">'
                         htmltext += '<p class="text-center mb-2 museu">Unidade1 - '+_completeItemAdressText1+'</p>'
