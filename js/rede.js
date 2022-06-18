@@ -260,5 +260,5 @@ function mapButton1(_adress2){
 }
 
 function areaMenu(){
-    console.log("Oi")
+    document.querySelector(".area-menu").classList.toggle("active");
 }

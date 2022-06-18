@@ -15,7 +15,19 @@
     src: url("../font/MUSEO900-REGULAR.OTF");
   }
 
+a{
+    
+    color: #000;
+}
+a:hover{
+    text-decoration: none;
+    color: #000;
+}
 
+html{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
 
 body{
     background-color: #ffffff;
@@ -83,6 +95,51 @@ header button:hover span{
     opacity: 0.8;
 }
     
+#area1, #area2, #area3, #area4, #area5, #area6, #area7, #area8, #area9, #area10, #area11{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: 0;
+    margin-top: -50px; /* esse valor varia de acordo com a altura do seu Header, se ele tiver 200px de altura coloque aqui -220px por exemplo */
+    background-color: transparent;
+    z-index: -1;
+}
+
+.area-menu{
+    display: flex;
+    color: #000;
+    position:absolute;
+    background-color: #fff;
+    box-sizing: content-box;
+    width: 100%;
+    left: 0;
+    z-index: 88;
+    display: none;
+}
+.area-menu.active{
+    display: block;
+}
+
+.area-menu ul{
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    
+}
+
+.area-menu li{
+    font-family: museo-sans-regular;;
+    padding: 10px 0;
+    text-align: center;
+    transition: 0.8s;
+}
+.area-menu li:hover{
+    background-color: #0076ce;
+}
+.area-menu li:hover a{
+    transition: 0.4s;
+    color: #fff !important; 
+}
 
 .table{
     display: table;
