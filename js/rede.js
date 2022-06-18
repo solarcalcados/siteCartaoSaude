@@ -29,7 +29,7 @@ const firebaseConfig = {
   let itemSubAreas;
   let nomeLogo;
 
-  console.log("V 2.3")
+  console.log("V 2.6")
 
 
   db.collection("credenciados").orderBy("name","asc").get()
