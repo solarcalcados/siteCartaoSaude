@@ -32,7 +32,8 @@ const firebaseConfig = {
   console.log("V 2.3")
 
 
-  db.collection("credenciados").get()
+  db.collection("credenciados").orderBy("", "desc")
+  .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
@@ -81,7 +82,6 @@ const firebaseConfig = {
             itemAdress = doc.data().endereco;
             itemNumberOfAdress = Object.keys(doc.data().endereco).length;
             if(!itemAdress["unidade2"].bairro){
-                console.log("no 2")
                 itemNumberOfAdress = 1;
             }
 
