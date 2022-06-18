@@ -32,7 +32,7 @@ const firebaseConfig = {
   console.log("V 2.3")
 
 
-  db.collection("credenciados").get()
+  db.collection("credenciados").orderBy("name","asc").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
@@ -81,7 +81,6 @@ const firebaseConfig = {
             itemAdress = doc.data().endereco;
             itemNumberOfAdress = Object.keys(doc.data().endereco).length;
             if(!itemAdress["unidade2"].bairro){
-                console.log("no 2")
                 itemNumberOfAdress = 1;
             }
 
@@ -232,6 +231,7 @@ function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdr
                             _itemcontactText = _itemcontactText.slice(0, _itemcontactText.indexOf("/")).replace(".","-")
                         htmltext += '<button class="blue-btn py-1 px-3 mb-4" onclick="location.href=\'tel:'+_itemcontactText+'\'">entrar em contato</button>'
                     htmltext += '</div>'
+                    console.log(document)
         document.getElementById(_itemArea).innerHTML+=htmltext;
 }
 
@@ -257,4 +257,8 @@ function reducedDisplay(_item){
 
 function mapButton1(_adress2){
     window.open("http://maps.google.com/?saddr=Current%20Location&daddr="+_adress2, "_blank")
+}
+
+function areaMenu(){
+    console.log("Oi")
 }

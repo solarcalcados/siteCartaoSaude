@@ -45,6 +45,45 @@ h4{
     color: #4c4c4c;
     display: inline;
 }
+header button{
+    display: flex;
+    margin: 10px auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(240, 240, 240, 0.568);
+    padding: 5px 25px;
+    border-radius: 100px;
+    border: #c7c7c7 solid 1px;
+    font-family: museo-sans-regular;
+    color: #979797;
+    transition: 0.6s;
+    box-shadow:  0 0 15px rgba(128, 128, 128, 0.349); 
+}
+
+header button:hover{
+    box-shadow:  0 0 15px rgba(128, 128, 128, 0.205); 
+}
+header button:focus{
+    outline: 0;
+}
+
+header button span{
+    margin: 0 auto;
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    background: url(../img/chevron-down-outline.svg) no-repeat center bottom;
+    background-size: 20px;
+    opacity: 0.5;
+    transition: 0.6s;
+}
+
+header button:hover span{
+    opacity: 0.8;
+}
+    
+
 .table{
     display: table;
     width: 100%;
