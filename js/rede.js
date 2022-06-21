@@ -32,7 +32,7 @@ const firebaseConfig = {
   console.log("V 2.6")
 
 
-  db.collection("credenciados").orderBy("name","asc").get()
+  db.collection("credenciados").orderBy("desconto", "desc").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
