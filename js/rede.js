@@ -262,7 +262,3 @@ function mapButton1(_adress2){
 function areaMenu(){
     document.querySelector(".area-menu").classList.toggle("active");
 }
-.cover{
-    background: url(img/cover.png) no-repeat center center;
-    background-size: cover;
-}
