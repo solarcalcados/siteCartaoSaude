@@ -101,9 +101,9 @@ h3{
     width: 210mm;
 }
 
-input{
+button{
     padding: 10px 20px;
-    margin: 50px auto;
+    margin: 50px 20px;
     border-radius: 10px;
 }
 
