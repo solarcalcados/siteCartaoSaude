@@ -32,6 +32,7 @@ const firebaseConfig = {
   console.log("V 2.6")
 
 
+
   db.collection("credenciados").orderBy("desconto", "asc").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -111,6 +112,9 @@ const firebaseConfig = {
         console.log("Error getting documents: ", error);
     });
 //, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText
+
+    
+
 function changeDisplayOfItem(_itemId){
 
     let statusOfDisplay = document.getElementById("item"+_itemId).classList;

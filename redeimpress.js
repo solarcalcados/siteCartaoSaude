@@ -111,7 +111,7 @@ const firebaseConfig = {
     });
 //, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText
 
-
+    setTimeout(carregamento, 1000*4);
 
 
 function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
@@ -148,4 +148,10 @@ function mapButton1(_adress2){
 
 function areaMenu(){
     document.querySelector(".area-menu").classList.toggle("active");
+}
+
+
+function carregamento(){
+    document.getElementById("loading").classList.add("none");
+    console.log("oi")
 }
