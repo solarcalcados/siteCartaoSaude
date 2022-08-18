@@ -1,0 +1,122 @@
+@font-face {
+    font-family: museo-sans-light;
+    src: url("../font/MuseoSansCyrl.otf");
+  }
+@font-face {
+    font-family: museo-sans-regular;
+    src: url("../font/MuseoSansCyrl.otf");
+  }
+  @font-face {
+    font-family: museo-sans-bold;
+    src: url("../font/MuseoSansCyrl_1.otf");
+  }
+@font-face {
+    font-family: museo-bold;
+    src: url("../font/MUSEO900-REGULAR.OTF");
+  }
+
+.cover{
+    height: 1060px;
+}
+
+.cover img{
+    z-index: 9999;
+    height:100vh;
+    position: relative;
+    bottom: 0;
+}
+
+.cred{
+    margin: 0 40px;
+}
+
+footer{
+    position: fixed;
+    left: 50%;
+    margin-left: -50vw;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    padding: 20px auto;
+}
+
+.cred-area{
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.cred-area>div{
+    padding: 30px;
+    justify-content: flex-start;
+}
+
+.left-data img{
+    width: 160px;
+}
+
+.left-data h3{
+    margin: 20px 0;
+    width: 160px;
+    text-align: center;
+    font-size: 1.6em;
+    color: #374893;
+}
+
+.right-data h2{
+    color: #374893;
+}
+
+.data{
+    margin: 0 20px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+h3{
+    font-size: 1.3em;
+}
+
+.tres{
+    font-size: 2.5em;
+    color: #374893;
+}
+
+.numbers{
+    margin-top: 20px;
+}
+
+.print{
+    display: none;
+}
+
+@page{
+    margin-top: 30px;
+    height: 297mm;
+    width: 210mm;
+}
+
+input{
+    padding: 10px 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+@media print {
+    footer{
+        margin-bottom: 35px;
+        z-index: -99;
+    }
+
+    .cover img{
+        margin-top: 5mm;
+    }
+
+    .no-print, .no-print *{
+        display: none !important;
+    }
+    .print{
+        display: block !important; 
+    }
+}

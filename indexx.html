@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rede credenciada</title>
+
+        
+
+        <link rel="shortcut icon" href="img/favicon.png" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="styleimpress.css"/>
+
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    </head>
+
+    <body>
+        <form class="no-print text-center">
+            <input type="button" value="Clique Aqui para imprimir a rede credenciada atualizada" onClick="window.print()"/>
+        </form>
+
+            <div class="print">
+        <section class="cover">
+            <img src="img/cover.png">
+            
+        </section>
+
+        <section class="cred">
+            <div id="area1"></div>
+            <div class="cred-area"> 
+                <h2 class="tres text-left" style="display: inline;">Clínicas médicas <hr style="height: 2px; color: #000;"> </h2>
+                <div id="medica">
+                    <div class="mother-data container"><div id="5" class="row data"><div class="left-data mr-4 col-3"><img src="img/logos/clinicaimma.svg"><h3>Descontos de até 70%</h3></div><div class="right-data ml-4 col-8"><h2>Clínica Imma Acesso</h2><div class="ml-3"><h3>Unidade1 - Av. Getúlio Vargas, Nº2509/ Monte Castelo</h3><h3 class="numbers">98 33110101 / 98 99210-2831</h3></div></div></div></div>
+                    <hr style="height:2px; color:#374893;">
+                </div>
+            </div>
+
+            <div id="area2"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Obstetria e Ginecologia</h2>
+                <div id="obstetria">
+                    
+                </div>
+            </div>
+
+            <div id="area3"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Laboratório</h2>
+                <div id="laboratorio">
+                    
+                </div>
+            </div>
+
+            <div id="area4"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Clínica de Diagnostico</h2>
+                <div id="diagnostico">
+                    
+                </div>
+            </div>
+            
+            <div id="area5"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Farmácia</h2>
+                <div id="farmacia">
+                    
+                </div>
+            </div>
+            
+            <div id="area6"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Farmácia de Manipulação</h2>
+                <div id="manipulacao">
+                    
+                </div>
+            </div>
+
+            <div id="area7"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Estética</h2>
+                <div id="estetica">
+                    
+                </div>
+            </div>
+        
+            <div id="area8"></div>
+            <div class="cred-area mb-5"> 
+                <h2 class="text-left tres">Odontologia</h2>
+                <div id="odontologia">
+                    
+                </div>
+            </div>
+            
+            <div id="area9"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres mt-5">Oftalmologia</h2>
+                <div id="oftalmologia">
+                    
+                </div>
+            </div>
+
+            <div id="area10"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Psicologia, Psiquiatria, Fonoaudiologia ou Nutrição</h2>
+                <div id="psico">
+                    
+                </div>
+            </div>
+
+            <div id="area11"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Fisioterapia</h2>
+                <div id="fisioterapia">
+                    
+                </div>
+            </div>
+
+            <div id="area12"></div>
+            <div class="cred-area"> 
+                <h2 class="text-left tres">Diversas</h2>
+                <div id="diversas">
+                    
+                </div>
+            </div>
+            
+
+        </section>
+        <footer>
+            <img  src="img/footer.svg">
+        </footer>
+    </div>
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+        <script src="redeimpress.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
