@@ -25,13 +25,14 @@ const firebaseConfig = {
   
 
   
-
-    db.collection("leads").doc(currentYear.toString()).collection(currentMonth.toString()).add({
-        data: today
-    })
-    .then((docRef) => {
-        window.location.href = "https://api.whatsapp.com/send?phone=5598983375979";
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-    });
+    if(document.querySelector(".leading")){
+        db.collection("leads").doc(currentYear.toString()).collection(currentMonth.toString()).add({
+            data: today
+        })
+        .then((docRef) => {
+            window.location.href = "https://api.whatsapp.com/send?phone=5598983375979";
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+    }
