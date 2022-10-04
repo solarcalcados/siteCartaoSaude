@@ -115,7 +115,7 @@ const firebaseConfig = {
 
 
 function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText, _itemId){
-        htmltext='<div class="mother-data container">'
+        htmltext ='<div class="mother-data container">'
             htmltext += '<div id="'+_itemId+'" class="row data">'
                 htmltext +='<div class="left-data mr-4 col-3">'
                     htmltext +='<img src="img/logos/'+_nomeLogo+'.svg">'
