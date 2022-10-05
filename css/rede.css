@@ -68,7 +68,7 @@ header button{
     border-radius: 100px;
     border: #c7c7c7 solid 1px;
     font-family: museo-sans-regular;
-    color: #979797;
+    color: #4a4a4a;
     transition: 0.6s;
     box-shadow:  0 0 15px rgba(128, 128, 128, 0.349); 
 }
