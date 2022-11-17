@@ -51,7 +51,6 @@ const firebaseConfig = {
 
             let noSignalName = itemName.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
             nomeLogo = noSignalName.replace(/\s/g, '').toLowerCase();
-            console.log(nomeLogo)
 
             itemArea = doc.data().area;
 
@@ -237,7 +236,6 @@ function loadItem(_itemName, _nomeLogo, _itemArea, _itemNumberOfAdress, _itemAdr
                             _itemcontactText = _itemcontactText.slice(0, _itemcontactText.indexOf("/")).replace(".","-")
                         htmltext += '<button class="blue-btn py-1 px-3 mb-4" onclick="location.href=\'tel:'+_itemcontactText+'\'">entrar em contato</button>'
                     htmltext += '</div>'
-                    console.log(document)
         document.getElementById(_itemArea).innerHTML+=htmltext;
 }
 
