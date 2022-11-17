@@ -31,7 +31,7 @@ const firebaseConfig = {
 
   let numParceiros;
 
-  console.log("V 3.0")
+  console.log("V 3.1")
 
 
 
