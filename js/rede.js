@@ -104,7 +104,7 @@ const firebaseConfig = {
  
 
             loadItem(itemName, nomeLogo, itemArea, itemNumberOfAdress, itemAdressText, completeItemAdressText1, completeItemAdressText2, itemDescontoText, itemcontactText, itemId);
-
+            console.log(numParceiros);
 
             
         });
@@ -113,7 +113,6 @@ const firebaseConfig = {
         console.log("Error getting documents: ", error);
     });
 //, _itemArea, _itemNumberOfAdress, _itemAdressText, _completeItemAdressText1, _completeItemAdressText2, _itemDescontoText, _itemcontactText
-    console.log(numParceiros);
     
 
 function changeDisplayOfItem(_itemId){
