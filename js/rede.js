@@ -35,7 +35,7 @@ const firebaseConfig = {
 
 
 
-  db.collection("credenciados").orderBy("desconto", "asc").get()
+  db.collection("credenciados").orderBy("desconto", "desc").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             numParceiros ++;
